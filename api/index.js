@@ -1,15 +1,17 @@
+// import packages 
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
 
+// import routes 
 const userRoute = require("./routes/user.js");
 const authRoute = require("./routes/auth.js");
 const productRoute = require("./routes/product.js");
 const cartRoute = require("./routes/cart.js");
 const orderRoute = require("./routes/order.js");
-// const stripeRoute = require("./routes/stripe.js");
 
+// express app
 const app = express()
 
 // connection to DB
@@ -32,7 +34,6 @@ app.use("/api/users", userRoute);
 app.use("/api/products", productRoute);
 app.use("/api/carts", cartRoute);
 app.use("/api/orders", orderRoute);
-// app.use("/api/checkout", stripeRoute);
 
 // error handling middleware
 app.use((err, req, res, next) => {

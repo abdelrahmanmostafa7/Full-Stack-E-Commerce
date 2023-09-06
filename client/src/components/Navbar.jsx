@@ -2,14 +2,17 @@ import React from "react";
 import styled from "styled-components";
 import { Badge } from "@material-ui/core";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
-import {mobile} from "../responsive"
+import { mobile } from "../responsive";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+
 const Container = styled.div`
   height: 60px;
   /* @media only screen and (max-width: 380px){
     display: none;
   } */
 
-  ${mobile({hight:"50px" })}
+  ${mobile({ hight: "50px" })}
 `;
 const Wrapper = styled.div`
   padding: 10px 20px;
@@ -53,7 +56,8 @@ const Logo = styled.div`
   font-weight: bold;
   font-size: 40px;
   letter-spacing: 3px;
-  ${mobile({ fontSize: "28px" })}
+  cursor: "default";
+   ${mobile({ fontSize: "28px" })};
 `;
 
 // Right Side
@@ -69,7 +73,10 @@ const MenuItem = styled.div`
   margin: 12px;
 `;
 
+
 const Navbar = () => {
+  const quantity = useSelector((state) => state.cart.quantity);
+
   return (
     <Container>
       <Wrapper>
@@ -80,19 +87,27 @@ const Navbar = () => {
             <Search style={{ color: "gray", fontSize: 18 }} />
           </SearchContainer>
         </Left>
-
-        <Center>
-          <Logo>BoKe.</Logo>
-        </Center>
-
+        <Link
+          style={{
+            textDecoration: "none",
+            color: "inherit",
+          }}
+          to="/"
+        >
+          <Center>
+            <Logo>Boke.</Logo>
+          </Center>
+        </Link>
         <Right>
           <MenuItem>REGISTER</MenuItem>
           <MenuItem>SIGNIN</MenuItem>
-          <MenuItem>
-            <Badge badgeContent={4} color="primary">
-              <ShoppingCartOutlined />
-            </Badge>
-          </MenuItem>
+          <Link to="/cart" style={{ color: "inherit" }}>
+            <MenuItem>
+              <Badge badgeContent={quantity} color="primary">
+                <ShoppingCartOutlined />
+              </Badge>
+            </MenuItem>
+          </Link>
         </Right>
       </Wrapper>
     </Container>

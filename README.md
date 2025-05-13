@@ -7,7 +7,6 @@ BoKe is a full-stack e-commerce platform designed to provide a seamless shopping
 ## Features
 
 ### **Frontend**
-- **Responsive Design**: Fully responsive UI using `styled-components` for cross-device compatibility.
 - **Product Management**:
   - Dynamic product listing with filtering and sorting options.
   - Individual product pages with detailed information.

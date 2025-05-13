@@ -1,7 +1,7 @@
 # BoKe E-Commerce Platform
 
 BoKe is a full-stack e-commerce platform designed to provide a seamless shopping experience for users. It features a modern React-based frontend and a robust Node.js/Express backend with MongoDB as the database. The platform is built with scalability, performance, and user experience in mind.
-
+-**Live Demo**: https://full-stack-e-commerce-neon.vercel.app/
 ---
 
 ## Features
